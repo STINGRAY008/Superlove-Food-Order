@@ -29,9 +29,53 @@
 }
 .menu ul li a:hover{
     color: #ffa502;
-
 }
-/* ******************************** CSS for ain Content Section ******************************** */
+.tbl-full{
+    width: 100%;
+}
+.tbl-30{
+    width: 30%;
+}
+table tr th{
+    border-bottom: 1px solid black;
+    padding: 1%;
+    text-align: left;
+}
+table tr td{
+    padding: 1%;
+}
+.btn-primary{
+    background-color: #1e90ff;
+    padding: 1%;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+.btn-primary:hover{
+    background-color: #3742fa;
+}
+.btn-secondary{
+    background-color: #2ed573;
+    padding: 1%;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+.btn-secondary:hover{
+    background-color: #7bed9f;
+}
+.btn-danger{
+    background-color: #ff4757;
+    padding: 1%;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+.btn-danger:hover{
+    background-color: #ff6b81;
+}
+
+/* ******************************** CSS for Main Content Section ******************************** */
 .main-content{
     background-color: #dfe4ea;
     padding-top: 3%;
