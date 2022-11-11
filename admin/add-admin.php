@@ -56,7 +56,7 @@ if(isset($_POST['submit']))
     //2. SQL Query to save the data into database
     $sql = "INSERT INTO tbl_admin SET
         full_name='$full_name',
-        username='username',
+        username='$username',
         password='$password'
     ";
 
@@ -72,7 +72,7 @@ if(isset($_POST['submit']))
         //Data Inserted
         //echo "Data Inserted";
         //Cteate a Session Variable to Display Message
-        $_SESSION['add'] = "Admin Added Successfully";
+        $_SESSION['add'] = " <div class='success'>Admin Added Successfully</div>";
         //Redirect Page to Manage admin
         header ("location:".SITEURL.'admin/manage-admin.php');
     }
@@ -81,7 +81,7 @@ if(isset($_POST['submit']))
         //Failed to Insert Data
         //echo "Failed to Insert Data";
         //Cteate a Session Variable to Display Message
-        $_SESSION['add'] = "Failed to Add Admin";
+        $_SESSION['add'] = "<div class='error'>Failed to Add Admin</div>";
         //Redirect Page to Add Admin
         header ("location:".SITEURL.'admin/add-admin.php');
     }

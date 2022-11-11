@@ -74,6 +74,13 @@ table tr td{
 .btn-danger:hover{
     background-color: #ff6b81;
 }
+.success{
+    color: #2ed573 ;
+}
+
+.error{
+    color: #ff4757 ;
+}
 
 /* ******************************** CSS for Main Content Section ******************************** */
 .main-content{
