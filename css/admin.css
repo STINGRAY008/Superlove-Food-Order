@@ -34,7 +34,9 @@
     width: 100%;
 }
 .tbl-30{
-    width: 30%;
+    width: 50%;
+    margin: 1%;
+    padding: 2%;
 }
 table tr th{
     border-bottom: 1px solid black;
@@ -85,7 +87,7 @@ table tr td{
 
 /* ******************************** CSS for Main Content Section ******************************** */
 .main-content{
-    background-color: #dfe4ea;
+    background-color: #f8f5f3;
     padding-top: 3%;
     padding-bottom: 3%;
 }
