@@ -32,7 +32,7 @@
     else
     {
         //Redirect to Manage Food
-        header ("location:".SITEURL.'admin/manage-food.php');
+        header("location:".SITEURL.'admin/manage-food.php');
     }
 
 ?>
@@ -173,7 +173,7 @@
                     $image_name = $_FILES['image']['name']; //New image name
 
                     //Check whether the file is available or not
-                    if($image_name!="")
+                    if($image_name!= "")
                     {
                         //Image is available
                         //Rename the image
@@ -194,13 +194,13 @@
                             //Failed to upload
                             $_SESSION['upload'] = "<div class='error'>Failed to upload new image.</div>";
                             //Redirect to manage food
-                            header ("location:".SITEURL.'admin/manage-food.php');
+                            header("location:".SITEURL.'admin/manage-food.php');
 
                             die();
                         }
                         //3. Remove the image if new image is uploaded and current image exist
                         //B. Remove current image if available
-                        if($current_image!="")
+                        if($current_image != "")
                         {
                             //Current image is available
                             //Remove the image
@@ -215,7 +215,7 @@
                                 $_SESSION['remove-failed'] = "<div class='error'>Failed to remove current image.</div>";
 
                                 //Redirect to manage food
-                                header ("location:".SITEURL.'admin/manage-food.php');
+                                header("location:".SITEURL.'admin/manage-food.php');
 
                                 die();
                             }
@@ -253,7 +253,7 @@
                 {
                     //Failed to update food
                     $_SESSION['update'] = "<div class='error'>Failed to update food.</div>";
-                    header ("location:".SITEURL.'admin/manage-food.php');
+                    header("location:".SITEURL.'admin/manage-food.php');
                 }
 
             }

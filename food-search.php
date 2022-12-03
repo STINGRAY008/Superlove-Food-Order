@@ -1,57 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <!-- Important to make website responsive -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Superlove Bistro</title>
-
-    <!-- Link our CSS file -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-</head>
-
-<body>
-    <!-- Navbar Section Starts Here -->
-    <section class="navbar">
-        <div class="container">
-            <div class="logo">
-                <a href="#" title="Logo">
-                    <img src="images/Superlove-1.png" alt="Restaurant Logo" class="img-responsive">
-                </a>
-            </div>
-
-            <div class="menu text-right">
-                <ul>
-                    <li>
-                        <a href="index.html">Home</a>
-                    </li>
-                    <li>
-                        <a href="categories.html">Categories</a>
-                    </li>
-                    <li>
-                        <a href="foods.html">Foods</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="clearfix"></div>
-        </div>
-    </section>
-    <!-- Navbar Section Ends Here -->
+<?php include('partials-front/menu.php'); ?>
 
     <!-- fOOD sEARCH Section Starts Here -->
     <section class="food-search text-center">
         <div class="container">
             
-            <form action="food-search.html" method="POST">
-                <input type="search" name="search" placeholder="Search for Food.." required>
-                <input type="submit" name="submit" value="Search" class="btn btn-primary">
-            </form>
+            <h2>Foods on your search <a href="#" class="text-orange">"Dumplings"</a></h2>
 
         </div>
     </section>
@@ -176,30 +129,4 @@
     </section>
     <!-- fOOD Menu Section Ends Here -->
 
-    <!-- -------------------------------- Social Section -------------------------------- -->
-    <section class="social">
-        <div class="container text-center">
-            <ul>
-                <li>
-                    <a href="https://www.facebook.com/SuperLoveHituan" target="_blank"><i class="fa fa-facebook"></i></a>
-                </li>
-                <li>
-                    <a href="" target="_blank"><i class="fa fa-whatsapp"></i></a>
-                </li>
-                <li>
-                    <a href="" target="_blank"><i class="fa fa-twitter"></i></a>
-                </li>
-            </ul>
-           
-        </div> 
-    </section>
-
-     <!-- -------------------------------- Footer Section -------------------------------- -->
-     <section class="footer">
-        <div class="container text-center">
-            <p>All rights reserved. Designed with <i class="fa fa-heart"></i> by: Gina Rodolfo</p>
-        </div> 
-    </section>
-
-</body>
-</html>
+    <?php include('partials-front/footer.php'); ?>

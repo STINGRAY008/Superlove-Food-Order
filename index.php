@@ -1,39 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Superlove Bistro</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
-    <!-- -------------------------------- Navbar Section -------------------------------- -->
-    <section class="navbar">
-        <div class="container">
-            <div class="logo">
-                <img src="images/Superlove.png" alt="" class="img-responsive">
-            </div>
-            <div class="menu text-right">
-                <ul>
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
-                <li>
-                    <a href="categories.html">Categories</a>
-                </li>
-                <li>
-                    <a href="foods.html">Foods</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-                </ul>
-            </div>
-            <div class="clearfix"></div>
-        </div> 
-    </section>
+<?php include('partials-front/menu.php'); ?>
 
      <!-- -------------------------------- Food Search Section -------------------------------- -->
     <section class="food-search text-center" >
@@ -49,24 +14,60 @@
      <section class="categories">
         <div class="container">
             <h2 class="text-center">Explore Foods</h2>
-            <a href="category-foods.html">
-            <div class="box-3 float-container" >
-                <img src="images/pizza.avif" alt="pizza" class="img-responsive1 img-curve">
-                <h3 class="float-text text-white">Pizza</h3>
-            </div>
-            </a>
-            <a href="#">
-            <div class="box-3 float-container">
-                <img src="images/burger.avif" alt="burger" class="img-responsive1 img-curve">
-                <h3 class="float-text text-white">Burger</h3>
-            </div>
-            </a>
-            <a href="#">
-            <div class="box-3 float-container">
-                <img src="images/dumpling.avif" alt="dumpling" class="img-responsive1 img-curve">
-                <h3 class="float-text text-white">Dumpling</h3>
-            </div> 
-            </a>
+
+            <?php
+                //Create SQL Query to display categories from Database
+                $sql = "SELECT * FROM tbl_category WHERE featured='Yes' AND active='Yes' LIMIT 3";
+                //Execute the Query
+                $res = mysqli_query($conn, $sql);
+                //Count rows to check whether the category is available or not
+                $count = mysqli_num_rows($res);
+
+                if($count>0)
+                {
+                    //Categories available
+                    while($row=mysqli_fetch_assoc($res))
+                    {
+                        //Get the values like id, title, image_name
+                        $id = $row['id'];
+                        $title = $row['title'];
+                        $image_name = $row['image_name'];
+
+                        ?>
+                        <a href="category-foods.html">
+                            <div class="box-3 float-container" >
+                                <?php
+                                    if($image_name=="")
+                                    {
+                                        //Display Message
+                                        echo "<div class='error'>Image not available.</div>";
+                                    }
+                                    else
+                                    {
+                                        //Image Available
+                                        ?>
+                                        <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name ?>" alt="pizza" class="img-responsive1 img-curve">
+                                        <?php
+                                    }
+                                ?>
+                                <h3 class="float-text text-white"><?php echo $title; ?></h3>
+                            </div>                      
+                        </a>
+
+                        <?php
+                    }
+                }
+                else
+                {
+                    //Categories not available
+                    echo "<div class='error'>Category not added.</div>";
+
+                }
+            ?>
+
+
+            
+            
             <div class="clearfix"></div>
         </div> 
     </section>
@@ -172,30 +173,4 @@
         </p>
     </section>
 
-     <!-- -------------------------------- Social Section -------------------------------- -->
-     <section class="social">
-        <div class="container text-center">
-            <ul>
-                <li>
-                    <a href="https://www.facebook.com/SuperLoveHituan" target="_blank"><i class="fa fa-facebook"></i></a>
-                </li>
-                <li>
-                    <a href="" target="_blank"><i class="fa fa-whatsapp"></i></a>
-                </li>
-                <li>
-                    <a href="" target="_blank"><i class="fa fa-twitter"></i></a>
-                </li>
-            </ul>
-           
-        </div> 
-    </section>
-
-     <!-- -------------------------------- Footer Section -------------------------------- -->
-     <section class="footer">
-        <div class="container text-center">
-            <p>All rights reserved. Designed with <i class="fa fa-heart"></i> by: Gina Rodolfo</p>
-        </div> 
-    </section>
-
-</body>
-</html>
+    <?php include('partials-front/footer.php'); ?>
