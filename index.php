@@ -65,9 +65,6 @@
                 }
             ?>
 
-
-            
-            
             <div class="clearfix"></div>
         </div> 
     </section>
@@ -76,97 +73,70 @@
      <section class="food-menu">
         <div class="container">
             <h2 class="text-center">Food Menu</h2>
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/pizza-1.avif" alt="Chicken Hawaiian Pizza" class="img-responsive2 img-curve">
 
-                </div>
-                <div class="food-menu-desc">
-                    <h4>Food Title</h4>
-                    <p class="food-price">&#8369 320.00</p>
-                    <p class="food-detail">Made with Italian Sauce, Chicken and Organic Vegetables</p>
-                    <br>
-                    <a href="order.html" class="btn primary-btn">Order Now</a>
-                </div>
-                <div class="clearfix"></div>
-            </div>
+            <?php
+                //Create SQL Query to display food from Database
+                $sql2 = "SELECT * FROM tbl_food WHERE featured='Yes' AND active='Yes' LIMIT 6";
+                //Execute the Query
+                $res2 = mysqli_query($conn, $sql2);
+                //Count rows to check whether the food is available or not
+                $count2 = mysqli_num_rows($res2);
 
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/burger-2.avif" alt="Chicken Hawaiian Pizza" class="img-responsive2 img-curve">
+                if($count2>0)
+                {
+                    //Foods available
+                    while($row=mysqli_fetch_assoc($res2))
+                    {
+                        //Get the values like id, title, image_name
+                        $id = $row['id'];
+                        $title = $row['title'];
+                        $price = $row['price'];
+                        $description = $row['description'];
+                        $image_name = $row['image_name'];
 
-                </div>
-                <div class="food-menu-desc">
-                    <h4>Smoked Burger</h4>
-                    <p class="food-price">&#8369 320.00</p>
-                    <p class="food-detail">Made with Italian Sauce, Chicken and Organic Vegetables</p>
-                    <br>
-                    <a href="#" class="btn primary-btn">Order Now</a>
-                </div>
-                <div class="clearfix"></div>
-            </div>
+                        ?>
+                         <div class="food-menu-box">
+                            <div class="food-menu-img">
+                                <?php
+                                    //Check whether image available or not
+                                    if($image_name=="")
+                                    {
+                                        //Image not available
+                                        echo "<div class='error'>Image not available.</div>";
+                                    }
+                                    else
+                                    {
+                                        //Image Available
+                                        ?>
+                                        <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="Chicken Hawaiian Pizza" class="img-responsive2 img-curve">;
+                                        <?php
+                                    }
+                                ?>
+                                
+                            </div>
+                            <div class="food-menu-desc">
+                                <h4><?php echo $title; ?></h4>
+                                <p class="food-price">&#8369 <?php echo $price ?></p>
+                                <p class="food-detail">
+                                    <?php echo $description; ?>
+                                </p>
+                                <br>
+                                <a href="order.html" class="btn primary-btn">Order Now</a>
+                            </div>
+                            <div class="clearfix"></div>
+                            </div>
+                        <?php
+                    }
+                }
+                else
+                {
+                    //Food not available
+                    echo "<div class='error'>Food not available.</div>";
 
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/burger.avif" alt="Chicken Hawaiian Pizza" class="img-responsive2 img-curve">
-
-                </div>
-                <div class="food-menu-desc">
-                    <h4>Cheese Burger</h4>
-                    <p class="food-price">&#8369 320.00</p>
-                    <p class="food-detail">Made with Italian Sauce, Chicken and Organic Vegetables</p>
-                    <br>
-                    <a href="#" class="btn primary-btn">Order Now</a>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/pizza-1.avif" alt="Chicken Hawaiian Pizza" class="img-responsive2 img-curve">
-
-                </div>
-                <div class="food-menu-desc">
-                    <h4>Food Title</h4>
-                    <p class="food-price">&#8369 320.00</p>
-                    <p class="food-detail">Made with Italian Sauce, Chicken and Organic Vegetables</p>
-                    <br>
-                    <a href="#" class="btn primary-btn">Order Now</a>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/pizza-1.avif" alt="Chicken Hawaiian Pizza" class="img-responsive2 img-curve">
-
-                </div>
-                <div class="food-menu-desc">
-                    <h4>Food Title</h4>
-                    <p class="food-price">&#8369 320.00</p>
-                    <p class="food-detail">Made with Italian Sauce, Chicken and Organic Vegetables</p>
-                    <br>
-                    <a href="#" class="btn primary-btn">Order Now</a>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/dumpling.avif" alt="Chicken Hawaiian Pizza" class="img-responsive2 img-curve">
-
-                </div>
-                <div class="food-menu-desc">
-                    <h4>Chicken Steam Dumpling</h4>
-                    <p class="food-price">&#8369 320.00</p>
-                    <p class="food-detail">Made with Italian Sauce, Chicken and Organic Vegetables</p>
-                    <br>
-                    <a href="#" class="btn primary-btn">Order Now</a>
-                </div>
-                <div class="clearfix"></div>
-            </div>
+                }
+            ?>
            
-            <div class="clearfix"></div>
+        <div class="clearfix"></div>
         </div> 
         <p class="text-center">
             <a href="#">See All Foods</a>
