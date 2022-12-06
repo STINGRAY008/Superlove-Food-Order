@@ -3,8 +3,13 @@
     <!-- fOOD sEARCH Section Starts Here -->
     <section class="food-search text-center">
         <div class="container">
+
+        <?php 
+            //Get the search keyword
+            $search = $_POST['search'];
+        ?>
             
-            <h2>Foods on your search <a href="#" class="text-orange">"Dumplings"</a></h2>
+            <h2>Foods on your search <a href="#" class="text-orange">"<?php echo $search;?>"</a></h2>
 
         </div>
     </section>
@@ -17,112 +22,73 @@
         <div class="container">
             <h2 class="text-center">Food Menu</h2>
 
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/menu-pizza.jpg" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
-                </div>
+            <?php
+                
+                //SQL Query to get foods based on search keyword
+                $sql = "SELECT * FROM tbl_food WHERE title LIKE '%$search%' OR description LIKE '%$search%'";
 
-                <div class="food-menu-desc">
-                    <h4>Food Title</h4>
-                    <p class="food-price">$2.3</p>
-                    <p class="food-detail">
-                        Made with Italian Sauce, Chicken, and organice vegetables.
-                    </p>
-                    <br>
+                //Execute the query
+                $res = mysqli_query($conn, $sql);
 
-                    <a href="#" class="btn btn-primary">Order Now</a>
-                </div>
-            </div>
+                //Count rows
+                $count = mysqli_num_rows($res);
 
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/menu-burger.jpg" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
-                </div>
+                //Check whether food available or not
+                if($count>0)
+                {
+                    //Food available
+                    while($row=mysqli_fetch_assoc($res))
+                    {
+                        //Get the values like id, title, image_name
+                        $id = $row['id'];
+                        $title = $row['title'];
+                        $price = $row['price'];
+                        $description = $row['description'];
+                        $image_name = $row['image_name'];
 
-                <div class="food-menu-desc">
-                    <h4>Smoky Burger</h4>
-                    <p class="food-price">$2.3</p>
-                    <p class="food-detail">
-                        Made with Italian Sauce, Chicken, and organice vegetables.
-                    </p>
-                    <br>
-
-                    <a href="#" class="btn btn-primary">Order Now</a>
-                </div>
-            </div>
-
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/menu-burger.jpg" alt="Chicke Hawain Burger" class="img-responsive img-curve">
-                </div>
-
-                <div class="food-menu-desc">
-                    <h4>Nice Burger</h4>
-                    <p class="food-price">$2.3</p>
-                    <p class="food-detail">
-                        Made with Italian Sauce, Chicken, and organice vegetables.
-                    </p>
-                    <br>
-
-                    <a href="#" class="btn btn-primary">Order Now</a>
-                </div>
-            </div>
-
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/menu-pizza.jpg" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
-                </div>
-
-                <div class="food-menu-desc">
-                    <h4>Food Title</h4>
-                    <p class="food-price">$2.3</p>
-                    <p class="food-detail">
-                        Made with Italian Sauce, Chicken, and organice vegetables.
-                    </p>
-                    <br>
-
-                    <a href="#" class="btn btn-primary">Order Now</a>
-                </div>
-            </div>
-
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/menu-pizza.jpg" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
-                </div>
-
-                <div class="food-menu-desc">
-                    <h4>Food Title</h4>
-                    <p class="food-price">$2.3</p>
-                    <p class="food-detail">
-                        Made with Italian Sauce, Chicken, and organice vegetables.
-                    </p>
-                    <br>
-
-                    <a href="#" class="btn btn-primary">Order Now</a>
-                </div>
-            </div>
-
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/menu-momo.jpg" alt="Chicke Hawain Momo" class="img-responsive img-curve">
-                </div>
-
-                <div class="food-menu-desc">
-                    <h4>Chicken Steam Momo</h4>
-                    <p class="food-price">$2.3</p>
-                    <p class="food-detail">
-                        Made with Italian Sauce, Chicken, and organice vegetables.
-                    </p>
-                    <br>
-
-                    <a href="#" class="btn btn-primary">Order Now</a>
-                </div>
-            </div>
-
-
-            <div class="clearfix"></div>
-
+                        ?>
+                         <div class="food-menu-box">
+                            <div class="food-menu-img">
+                                <?php
+                                    //Check whether image available or not
+                                    if($image_name=="")
+                                    {
+                                        //Image not available
+                                        echo "<div class='error'>Image not available.</div>";
+                                    }
+                                    else
+                                    {
+                                        //Image Available
+                                        ?>
+                                        <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="Chicken Hawaiian Pizza" class="img-responsive2 img-curve">;
+                                        <?php
+                                    }
+                                ?>
+                                
+                            </div>
+                            <div class="food-menu-desc">
+                                <h4><?php echo $title; ?></h4>
+                                <p class="food-price">&#8369 <?php echo $price ?></p>
+                                <p class="food-detail">
+                                    <?php echo $description; ?>
+                                </p>
+                                <br>
+                                <a href="order.html" class="btn primary-btn">Order Now</a>
+                            </div>
+                            <div class="clearfix"></div>
+                            </div>
+                        <?php
+                    }
+                }
+                else
+                {
+                    //Food not available
+                    echo "<div class 'error'>Food not found.</div>";
+                }
             
+            ?>
+
+            <div class="clearfix"></div>  
 
         </div>
 

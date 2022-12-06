@@ -5,7 +5,7 @@
        <h1>Update Food</h1>
        <br><br>
 
-       <?php 
+<?php 
     //Check whether id is set or not
     if(isset($_GET['id']))
     {
@@ -34,121 +34,118 @@
         //Redirect to Manage Food
         header("location:".SITEURL.'admin/manage-food.php');
     }
-
 ?>
-       
-       <form action="" method="POST" enctype="multipart/form-data">
-            <table class="tbl-30">
-                <tr>
-                    <td>Title:</td>
-                    <td>
-                        <input type="text" name="title" value="<?php echo $title; ?>">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Description:</td>
-                    <td>
-                        <textarea name="description" cols="30" rows="5"><?php echo $description; ?></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Price:</td>
-                    <td>
-                        <input type="number" name="price" value="<?php echo $price; ?>">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Current Image:</td>
-                    <td>
+    <form action="" method="POST" enctype="multipart/form-data">
+        <table class="tbl-30">
+            <tr>
+                <td>Title:</td>
+                <td>
+                    <input type="text" name="title" value="<?php echo $title; ?>">
+                </td>
+            </tr>
+            <tr>
+                <td>Description:</td>
+                <td>
+                    <textarea name="description" cols="30" rows="5"><?php echo $description; ?></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>Price:</td>
+                <td>
+                    <input type="number" name="price" value="<?php echo $price; ?>">
+                </td>
+            </tr>
+            <tr>
+                <td>Current Image:</td>
+                <td>
+                    <?php
+                    if($current_image == "")
+                    {
+                        //Image not available
+                        echo "<div class='error'>Image not Available.</div>";
+                    }
+                    else
+                    {
+                        //Image Available
+                        ?>
+                        <img src="<?php echo SITEURL; ?>images/food/<?php echo $current_image; ?>" width=150px>
                         <?php
-                        if($current_image == "")
+                    }
+                    
+                    ?>
+                
+                </td>
+            </tr>
+            <tr>
+                <td>Select New Image:</td>
+                <td>
+                    <input type="file" name="image">
+                </td>
+            </tr>
+            <tr>
+                <td>Category:</td>
+                <td>
+                    <select name="category">
+                        <?php
+                        //Query to get active categories
+                        $sql = "SELECT * FROM tbl_category WHERE active='Yes'";
+                        //Execute the query
+                        $res = mysqli_query($conn, $sql);
+                        //Count Rows
+                        $count = mysqli_num_rows($res);
+                        
+                        //Check whether category available or not
+                        if($count>0)
                         {
-                            //Image not available
-                            echo "<div class='error'>Image not Available.</div>";
+                            //Category available
+                            while($row=mysqli_fetch_assoc($res))
+                            {
+                                $category_title = $row['title'];
+                                $category_id = $row['id'];
+
+                                //echo "<option value='$category_id'>$category_title</option>";
+
+                                ?>
+                                    <option <?php if($current_category==$category_id){echo "selected";} ?> value="<?php echo $category_id; ?>"><?php echo $category_title; ?></option>
+                                <?php
+
+                            }
+                            
                         }
                         else
                         {
-                            //Image Available
-                            ?>
-                            <img src="<?php echo SITEURL; ?>images/food/<?php echo $current_image; ?>" width=150px>
-                            <?php
+                            //Category not available
+                            echo "<optiom value='0'>Category Not Available.</option>";
                         }
                         
                         ?>
-                    
-                    </td>
-                </tr>
-                <tr>
-                    <td>Select New Image:</td>
-                    <td>
-                        <input type="file" name="image">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Category:</td>
-                    <td>
-                        <select name="category">
-                            <?php
-                            //Query to get active categories
-                            $sql = "SELECT * FROM tbl_category WHERE active='Yes'";
-                            //Execute the query
-                            $res = mysqli_query($conn, $sql);
-                            //Count Rows
-                            $count = mysqli_num_rows($res);
-                            
-                            //Check whether category available or not
-                            if($count>0)
-                            {
-                                //Category available
-                                while($row=mysqli_fetch_assoc($res))
-                                {
-                                    $category_title = $row['title'];
-                                    $category_id = $row['id'];
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Featured:</td>
+                <td>
+                    <input <?php if($featured=="Yes"){echo "checked";} ?> type="radio" name="featured" value="Yes">Yes
+                    <input <?php if($featured=="No"){echo "checked";} ?> type="radio" name="featured" value="No">No
+                </td>
+            </tr>
+            <tr>
+                <td>Active:</td>
+                <td>
+                    <input <?php if($active=="Yes"){echo "checked";} ?> type="radio" name="active" value="Yes">Yes
+                    <input <?php if($active=="No"){echo "checked";} ?> type="radio" name="active" value="No">No
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="hidden" name="id" value="<?php echo $id; ?>">
+                    <input type="hidden" name="current_image" value="<?php echo $current_image; ?>">
+                    <input type="submit" name="submit" value="Update Food" class="btn-primary">
+                </td>
+            </tr>
 
-                                    //echo "<option value='$category_id'>$category_title</option>";
-
-                                    ?>
-                                        <option <?php if($current_category==$category_id){echo "selected";} ?> value="<?php echo $category_id; ?>"><?php echo $category_title; ?></option>
-                                    <?php
-
-                                }
-                               
-                            }
-                            else
-                            {
-                                //Category not available
-                                echo "<optiom value='0'>Category Not Available.</option>";
-                            }
-                            
-                            ?>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Featured:</td>
-                    <td>
-                        <input <?php if($featured=="Yes"){echo "checked";} ?> type="radio" name="featured" value="Yes">Yes
-                        <input <?php if($featured=="No"){echo "checked";} ?> type="radio" name="featured" value="No">No
-                    </td>
-                </tr>
-                <tr>
-                    <td>Active:</td>
-                    <td>
-                        <input <?php if($active=="Yes"){echo "checked";} ?> type="radio" name="active" value="Yes">Yes
-                        <input <?php if($active=="No"){echo "checked";} ?> type="radio" name="active" value="No">No
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <input type="hidden" name="id" value="<?php echo $id; ?>">
-                        <input type="hidden" name="current_image" value="<?php echo $current_image; ?>">
-                        <input type="submit" name="submit" value="Update Food" class="btn-primary">
-                    </td>
-                </tr>
-
-            </table>
-        </form>
-
+        </table>
+    </form>
         <?php
             if(isset($_POST['submit']))
             {
@@ -244,10 +241,10 @@
                 ";
 
                 //Execute the SQL Query
-                $res = mysqli_query($conn, $sql3);
+                $res3 = mysqli_query($conn, $sql3);
 
                 //Check whether the query is executed or not
-                if($res==true)
+                if($res3==true)
                 {
                     //Query executed and food updated
                     $_SESSION['update'] = "<div class='success'>Food updated succesfully.</div>";
@@ -258,13 +255,12 @@
                     //Failed to update food
                     $_SESSION['update'] = "<div class='error'>Failed to update food.</div>";
                     header("location:".SITEURL.'admin/manage-food.php');
+
+
                 }
 
             }
         ?>
-
     </div>
 </div>
-
-
 <?php include ('partials/footer.php'); ?>
