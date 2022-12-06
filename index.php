@@ -1,6 +1,6 @@
 <?php include('partials-front/menu.php'); ?>
 
-     <!-- -------------------------------- Food Search Section -------------------------------- -->
+<!-- -------------------------------- Food Search Section -------------------------------- -->
     <section class="food-search text-center" >
         <div class="container">
             <form action="<?php echo SITEURL; ?>food-search.php" method="POST">
@@ -10,7 +10,7 @@
         </div>    
     </section>
 
-     <!-- -------------------------------- Categories Section -------------------------------- -->
+<!-- -------------------------------- Categories Section -------------------------------- -->
      <section class="categories">
         <div class="container">
             <h2 class="text-center">Explore Foods</h2>
@@ -69,7 +69,7 @@
         </div> 
     </section>
 
-     <!-- -------------------------------- Food Menu Section -------------------------------- -->
+<!-- -------------------------------- Food Menu Section -------------------------------- -->
     <section class="food-menu">
         <div class="container">
             <h2 class="text-center">Food Menu</h2>

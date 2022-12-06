@@ -28,7 +28,7 @@
                 //Food not Availabe
                 //REdirect to Home Page
                 header('location:'.SITEURL);
-            } */
+            } */ 
         }
         else
         {
@@ -39,7 +39,7 @@
 
 
 
-    <!-- fOOD sEARCH Section Starts Here -->
+<!---------------------------- Food Search Section Starts Here ---------------------------->
     <section class="food-search">
         <div class="container">
             
@@ -85,7 +85,7 @@
 
         </div>
     </section>
-    <!-- fOOD sEARCH Section Ends Here -->
+<!-------------------------------- Food Search Section Ends Here -------------------------------->
 
     
 
