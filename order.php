@@ -5,7 +5,30 @@
         {
             //Get the Food id and details of the selected food
             $food_id = $_GET['food_id'];
-            
+
+            /* //Get the DEtails of the SElected Food
+            $sql = "SELECT * FROM tbl_food WHERE id=$food_id";
+            //Execute the Query
+            $res = mysqli_query($conn, $sql);
+            //Count the rows
+            $count = mysqli_num_rows($res);
+            //CHeck whether the data is available or not
+            if($count==1)
+            {
+                //WE Have DAta
+                //GEt the Data from Database
+                $row = mysqli_fetch_assoc($res);
+
+                $title = $row['title'];
+                $price = $row['price'];
+                $image_name = $row['image_name'];
+            }
+            else
+            {
+                //Food not Availabe
+                //REdirect to Home Page
+                header('location:'.SITEURL);
+            } */
         }
         else
         {
@@ -31,7 +54,7 @@
                     </div>
     
                     <div class="food-menu-desc">
-                        <h3>Food Title</h3>
+                        <h3>FOOD Title</h3>
                         <p class="food-price">&#8369 200.00</p>
 
                         <div class="order-label">Quantity</div>

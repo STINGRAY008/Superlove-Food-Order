@@ -178,8 +178,11 @@ footer{
 .order{
     width: 50%;
     margin: 1% auto;
-    padding: 1% auto;
+    /* padding: 1% auto; */
     background-color: #efd1a7;
+
+    border: 1px solid grey;
+    padding: 4%;
 }
 .input-responsive{
     width: 92%;

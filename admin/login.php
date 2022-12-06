@@ -35,7 +35,7 @@
             <br><br><br>    
             </form>
 
-            <p class="text-center">Created By: <a href="">Gina Rodolfo</a></p>
+            <p class="text-center">Created By: <a href=""><br>Gina Rodolfo and<br> Charlotte Joyce Batawang</a></p>
         </div>
     </body>
 </html>

@@ -138,7 +138,7 @@
            
         <div class="clearfix"></div>
         <p class="text-center">
-            <a href="#">See All Foods</a>
+            <a href="<?php echo SITEURL; ?>foods.php?food_id=<<?php echo $id; ?>">See All Foods</a>
         </p>
     </section>
 

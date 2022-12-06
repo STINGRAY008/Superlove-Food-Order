@@ -52,7 +52,6 @@
                 {
                     //Categories not available
                     echo "<div class='error'>Category not found.</div>";
-
                 }
             ?>
 
