@@ -174,7 +174,9 @@
                     {
                         //Image is available
                         //Rename the image
-                        $ext = end(explode('.', $image_name)); //Gets the extension of the image
+                        //$ext = end(explode('.', $image_name)); //Gets the extension of the image
+                        $image_info = explode(".", $image_name);
+                        $ext = end($image_info);
 
                         $image_name = "Food-Name-".rand(0000, 9999).'.'.$ext; //This will rename image 
 

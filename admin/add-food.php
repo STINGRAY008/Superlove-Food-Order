@@ -164,7 +164,9 @@
                         // Image is SElected
                         //A. REnamge the Image
                         //Get the extension of selected image (jpg, png, gif, etc.) "vijay-thapa.jpg" vijay-thapa jpg
-                        $ext = end(explode('.', $image_name));
+                        //$ext = end(explode('.', $image_name));
+                        $image_info = explode(".", $image_name);
+                        $ext = end($image_info);
 
                         // Create New Name for Image
                         $image_name = "Food-Name-".rand(0000,9999).".".$ext; //New Image Name May Be "Food-Name-657.jpg"

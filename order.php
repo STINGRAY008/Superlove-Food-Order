@@ -6,7 +6,7 @@
             //Get the Food id and details of the selected food
             $food_id = $_GET['food_id'];
 
-            /* //Get the DEtails of the SElected Food
+            //Get the DEtails of the SElected Food
             $sql = "SELECT * FROM tbl_food WHERE id=$food_id";
             //Execute the Query
             $res = mysqli_query($conn, $sql);
@@ -28,7 +28,7 @@
                 //Food not Availabe
                 //REdirect to Home Page
                 header('location:'.SITEURL);
-            } */ 
+            } 
         }
         else
         {
@@ -36,8 +36,6 @@
             header('location:'.SITEURL);
         }
     ?>
-
-
 
 <!---------------------------- Food Search Section Starts Here ---------------------------->
     <section class="food-search">
@@ -50,12 +48,25 @@
                     <legend>Selected Food</legend>
 
                     <div class="food-menu-img">
-                        <img src="images/menu-pizza.jpg" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
-                    </div>
+                    <?php
+                        if($image_name=="")
+                        {
+                            //Display Message
+                            echo "<div class='error'>Image not found.</div>";
+                        }
+                        else
+                        {
+                            //Image Available
+                            ?>
+                            <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name ?>" alt="pizza"  class="img-responsive2 img-curve">
+
+                            <?php
+                        }
+                    ?>                    </div>
     
                     <div class="food-menu-desc">
-                        <h3>FOOD Title</h3>
-                        <p class="food-price">&#8369 200.00</p>
+                        <h3><?php echo $title; ?></h3>
+                        <p class="food-price">&#8369 <?php echo $price; ?></p>
 
                         <div class="order-label">Quantity</div>
                         <input type="number" name="qty" class="input-responsive" value="1" required>
@@ -78,7 +89,7 @@
                     <div class="order-label">Address</div>
                     <textarea name="address" rows="10" placeholder="E.g. Street, Town, City, Country" class="input-responsive" required></textarea>
 
-                    <input type="submit" name="submit" value="Confirm Order" class="btn-primary">
+                    <input type="submit" name="submit" value="Confirm Order" class=" btn primary-btn">
                 </fieldset>
 
             </form>

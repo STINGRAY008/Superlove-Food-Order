@@ -121,7 +121,7 @@
                                     <?php echo $description; ?>
                                 </p>
                                 <br>
-                                <a href="<?php echo SITEURL; ?>order.php?food_id=<<?php echo $id; ?>" class="btn primary-btn">Order Now</a>
+                                <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn primary-btn">Order Now</a>
                             </div>
                             <div class="clearfix"></div>
                             </div>
@@ -138,7 +138,7 @@
            
         <div class="clearfix"></div>
         <p class="text-center">
-            <a href="<?php echo SITEURL; ?>foods.php?food_id=<<?php echo $id; ?>">See All Foods</a>
+            <a href="<?php echo SITEURL; ?>foods.php?food_id=<?php echo $id; ?>">See All Foods</a>
         </p>
     </section>
 

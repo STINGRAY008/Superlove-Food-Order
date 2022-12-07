@@ -64,6 +64,8 @@ a:hover{
     background-color: #E14D2A;
     color: white;
     cursor: pointer;
+    width: 150px;
+    margin: 2%;
 }
 .primary-btn:hover{
     background-color: #FD841F;
@@ -185,16 +187,17 @@ footer{
     padding: 4%;
 }
 .input-responsive{
-    width: 92%;
+    width: 88%;
     padding: 3%;
     margin-bottom: 3%;
-    margin-left: 1px;
+    margin-left: 3%;
     border: none;
     border-radius: 5px;
     font-size: 1rem;
 }
 .order-label{
-    margin-bottom: 1%; 
+    margin-bottom: 2%; 
+    margin-left: 2%;
     font-weight: bold;
 }
 /* ----------------CSS for Mobile View---------------- */
