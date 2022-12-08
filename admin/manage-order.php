@@ -6,8 +6,16 @@
             <table class="tbl-full">
                 <tr>
                     <th>S.N.</th>
-                    <th>Full Name</th>
-                    <th>Username</th>
+                    <th>Food</th>
+                    <th>Price</th>
+                    <th>Qty.</th>
+                    <th>Total</th>
+                    <th>Order Date</th>
+                    <th>Status</th>
+                    <th>Customer Name</th>
+                    <th>Contact</th>
+                    <th>Email</th>
+                    <th>Address</th>
                     <th>Actions</th>
                 </tr>
                 <tr>

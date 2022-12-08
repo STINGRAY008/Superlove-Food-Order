@@ -87,6 +87,22 @@ h3{
     bottom: 50px;
     left: 40%;
 }
+fieldset{
+    border: 1px solid gray;
+    margin: 3%;
+    padding: 3%;
+    border-radius: 5px;
+}
+.error
+{
+    padding: 2%;
+    color: red;
+}
+.success
+{
+    padding: 2%;
+    color: green;
+}
 
 /* ----------------CSS for Navbar Section---------------- */
 
@@ -184,7 +200,7 @@ footer{
     background-color: #efd1a7;
 
     border: 1px solid grey;
-    padding: 4%;
+    padding: 1%;
 }
 .input-responsive{
     width: 88%;

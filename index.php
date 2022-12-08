@@ -10,6 +10,14 @@
         </div>    
     </section>
 
+    <?php 
+        if(isset($_SESSION['order']))
+        {
+            echo $_SESSION['order'];
+            unset($_SESSION['order']);
+        }
+    ?>
+
 <!-- -------------------------------- Categories Section -------------------------------- -->
      <section class="categories">
         <div class="container">

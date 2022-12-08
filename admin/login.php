@@ -23,15 +23,15 @@
                 unset ($_SESSION['no-login-message']);
             }
             ?>
-            <br><br>
-            <form action="" method="POST">
+            <form action="" method="POST" class="login-form">
                 Username: <br>
                 <input type="text" name="username" placeholder="Enter Username"> <br><br>
 
                 Password: <br>
                 <input type="password" name="password" placeholder="Enter Password"> <br><br>
-                <input type="submit" name="submit" value="Login" class="btn-primary">
-            
+
+                <button type="submit" name="submit" value="Login" class="btn-primary">Login</button>
+                    <!-- <input type="submit" name="submit" value="Login"> -->
             <br><br><br>    
             </form>
 
