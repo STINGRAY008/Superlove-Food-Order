@@ -90,7 +90,6 @@
 
                                 //2. Display on Drpopdown
                             ?>
-
                         </select>
                     </td>
                 </tr>
@@ -113,7 +112,7 @@
 
                 <tr>
                     <td colspan="2">
-                        <input type="submit" name="submit" value="Add Food" class="btn-secondary">
+                        <input type="submit" name="submit" value="Add Food" class="btn-primary">
                     </td>
                 </tr>
 

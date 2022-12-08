@@ -21,7 +21,8 @@
             <h2 class="text-center">Food Menu</h2>
             <?php
                 //Create SQL Query to display food from Database
-                $sql = "SELECT * FROM tbl_food WHERE active='Yes'";
+
+                $sql = "SELECT * FROM tbl_food WHERE active='Yes' ";
                 //Execute the Query
                 $res = mysqli_query($conn, $sql);
                 //Count rows to check whether the food is available or not

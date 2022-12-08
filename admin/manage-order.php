@@ -92,7 +92,7 @@
                                     <td><?php echo $customer_address; ?></td>
                                     
                                     <td>
-                                        <a href="<?php echo SITEURL; ?>admin/update-order.php?id=<?php echo $id ?>" class="btn-secondary">Update Order</a> 
+                                        <a href="<?php echo SITEURL; ?>admin/update-order.php?id=<?php echo $id ?>" class="btn-secondary">Update</a> 
                                     </td>
                                     
                                 </tr>                                

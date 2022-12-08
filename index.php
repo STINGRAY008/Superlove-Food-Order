@@ -84,7 +84,7 @@
 
             <?php
                 //Create SQL Query to display food from Database
-                $sql2 = "SELECT * FROM tbl_food WHERE featured='Yes' AND active='Yes' LIMIT 6";
+                $sql2 = "SELECT * FROM tbl_food WHERE featured='Yes' AND active='Yes' LIMIT 4";
                 //Execute the Query
                 $res2 = mysqli_query($conn, $sql2);
                 //Count rows to check whether the food is available or not
