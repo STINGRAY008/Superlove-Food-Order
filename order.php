@@ -65,13 +65,13 @@
                     </div>
                     <div class="food-menu-desc">
                         <h3><?php echo $title; ?></h3>
-                        <input type="hidden" name="food" value="<?php $title; ?>">
+                        <input type="hidden" name="food" value="<?php echo $title; ?>">
 
-                        <p class="food-price">&#8369 <?php echo $price; ?></p>
-                        <input type="hidden" name="price" value="<?php $price; ?>">
+                        <p class="food-price">&#8369  <?php echo $price; ?></p>
+                        <input type="hidden" name="price" value="<?php echo $price; ?>">
 
                         <div class="order-label">Quantity</div>
-                        <input type="number" name="qty" class="input-responsive" value="1" required>    
+                        <input type="number" name="qty" class="input-responsive" value="1" required> 
                     </div>
                 </fieldset>
                 
@@ -102,7 +102,7 @@
                     $price = (int)$_POST['price'];
                     $qty = (int)$_POST['qty'];
 
-                    $total =  $price * $qty ; // total = price x qty 
+                    $total = $price * $qty; // total = price x qty 
 
                     $order_date = date("Y-m-d h:i:sa"); //Order DAte
 
@@ -113,14 +113,13 @@
                     $customer_email = $_POST['email'];
                     $customer_address = $_POST['address'];
 
-
                     //Save the Order in Databaase
                     //Create SQL to save the data
                     $sql2 = "INSERT INTO tbl_order SET 
                         food = '$food',
-                        price = '$price',
-                        qty = '$qty',
-                        total = '$total',
+                        price = $price,
+                        qty = $qty,
+                        total = $total,
                         order_date = '$order_date',
                         status = '$status',
                         customer_name = '$customer_name',
