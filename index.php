@@ -21,7 +21,8 @@
 <!-- -------------------------------- Categories Section -------------------------------- -->
      <section class="categories">
         <div class="container">
-            <h2 class="text-center">Explore Foods</h2>
+            <!-- <h2 class="text-center">Explore Foods</h2> -->
+            <a href="<?php echo SITEURL; ?>categories.php"><h2 class="text-center">Explore Foods</h2></a>
 
             <?php
                 //Create SQL Query to display categories from Database
@@ -80,7 +81,8 @@
 <!-- -------------------------------- Food Menu Section -------------------------------- -->
     <section class="food-menu">
         <div class="container">
-            <h2 class="text-center">Food Menu</h2>
+            <!-- <h2 class="text-center">Food Menu</h2> -->
+            <a href="<?php echo SITEURL; ?>foods.php"><h2 class="text-center">Food Menu</h2></a>
 
             <?php
                 //Create SQL Query to display food from Database
@@ -146,7 +148,7 @@
            
         <div class="clearfix"></div>
         <p class="text-center">
-            <a href="<?php echo SITEURL; ?>foods.php?food_id=<?php echo $id; ?>">See All Foods</a>
+            <a href="<?php echo SITEURL; ?>foods.php?food_id=<?php echo $id; ?>"> <b>See All Foods</b></a>
         </p>
     </section>
 

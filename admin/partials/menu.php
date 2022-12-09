@@ -6,7 +6,7 @@
 
 <html>
     <head>
-        <title>Superlove Food Order - Home Page</title>
+        <title>Superlove Bistro - Home Page</title>
         <link rel="stylesheet" href="../css/admin.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
