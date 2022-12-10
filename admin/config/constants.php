@@ -3,7 +3,10 @@
     session_start();
 
      //Create Constants to Store Non Repeating Values
-     define('SITEURL', 'http://localhost:8080/Superlove-Food-Order/');
+     //define('SITEURL', 'http://localhost:8080/Superlove-Food-Order/');
+
+     define('SITEURL', 'https://superlove-bistro.herokuapp.com//Superlove-Food-Order/');
+
      define('LOCALHOST', 'localhost');
      define('DB_USERNAME', 'root');
      define('DB_PASSWORD', '');
