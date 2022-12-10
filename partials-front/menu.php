@@ -1,4 +1,6 @@
-
+<?php 
+    include('admin/config/constants.php');    
+?>
 
 <!DOCTYPE html>
 <html lang="en">
