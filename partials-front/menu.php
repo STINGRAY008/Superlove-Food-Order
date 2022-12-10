@@ -1,6 +1,6 @@
 
 <?php 
-    include ('admin/config/constants.php');    
+    include ('../admin/config/constants.php');    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +13,7 @@
     <!-- <link rel="stylesheet" href="css/style.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
    
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
@@ -25,7 +25,7 @@
     <section class="navbar">
         <div class="container">
             <div class="logo">
-                <a href="<?php echo SITEURL; ?>"><img src="images/Superlove.png" alt="" class="img-responsive"></a>
+                <a href="<?php echo SITEURL; ?>"><img src="../images/Superlove.png" alt="" class="img-responsive"></a>
             </div>
             <div class="menu text-right">
                 <ul>
