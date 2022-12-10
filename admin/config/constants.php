@@ -7,7 +7,7 @@
 
      define('SITEURL', 'https://superlove-bistro.herokuapp.com/');
 
-     define('LOCALHOST', '/index.php');
+     define('LOCALHOST', '/');
      define('DB_USERNAME', 'root');
      define('DB_PASSWORD', '');
      define('DB_NAME', 'superlove-food-order');
