@@ -1,4 +1,4 @@
-<?php include('partials-front/menu.php'); ?>
+<?php include_once('partials-front/menu.php'); ?>
 
 <!-- -------------------------------- Food Search Section -------------------------------- -->
     <section class="food-search text-center" >
@@ -152,4 +152,4 @@
         </p>
     </section>
 
-<?php include('partials-front/footer.php'); ?>
+<?php include_once('partials-front/footer.php'); ?>
